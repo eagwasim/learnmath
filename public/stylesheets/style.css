@@ -1,0 +1,54 @@
+body {
+    padding: 50px;
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    background: url('/images/background.jpg') repeat !important;
+}
+
+.playful {
+
+}
+
+a {
+    color: #00B7FF;
+}
+
+.white-background {
+    background-color: white;
+}
+
+.transparent-background {
+    background-color: transparent;
+}
+
+.overlay {
+    z-index: 1;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    overflow: auto;
+    margin: 0px !important;
+    background: rgba(0, 0, 0, 0.7); /*can be anything, of course*/
+}
+
+.margin {
+    margin: 8px;
+}
+
+input {
+    float: right;
+    clear: both;
+}
+
+md-list-item, md-list-item .md-list-item-inner {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-justify-content: flex-start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    min-height: 0px !important;
+    height: auto;
+}

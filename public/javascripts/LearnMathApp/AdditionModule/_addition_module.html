@@ -1,0 +1,62 @@
+<div layout="column">
+    <div layout="row" layout-align="start" style="margin-left: 40px;">
+        <h3 class="md-headline">ADDITION <span class="md-caption">{{getStar(starCount).description}}</span></h3>
+    </div>
+    <div layout="row">
+        <div class="margin md-whiteframe-1dp" layout="column" layout-align="start" flex="65">
+            <div layout="row" layout-align="end" style="margin-right: 60px">
+                <span class="md-display-1"> {{currentQuestion.valueOne}}</span>
+            </div>
+            <div layout="row" layout-align="end" style="margin-right: 60px">
+                <span class="md-display-1"> + </span>
+            </div>
+            <div layout="row" layout-align="end" style="margin-right: 60px">
+                <span class="md-display-1"> {{currentQuestion.valueTwo}} </span>
+            </div>
+            <br>
+            <form name="answerForm">
+                <div layout="column" layout-align="start"
+                     style="margin-left: 40px ; margin-bottom: 20px; margin-right: 40px">
+                    <input ng-model="currentQuestion.answer" required style="text-align: end" type="number"
+                           class="md-display-1"
+                           placeholder="ANSWER">
+                    <br>
+                    <md-button class="md-primary md-raised" ng-click="mark()" ng-disabled="answerForm.$invalid"> MARK
+                        QUESTION
+                    </md-button>
+                </div>
+            </form>
+        </div>
+        <div class="margin" layout="column" flex="35">
+            <div class="md-whiteframe-1dp" layout="column" layout-padding>
+                <div layout="row" layout-align="center">
+                    <ng-md-icon icon="star" size="48" style="fill:{{getStar(starCount).star}}"></ng-md-icon>
+                </div>
+                <div layout="row" layout-align="center">
+                    <h4>{{getStar(starCount).name}}</h4>
+                </div>
+            </div>
+            <br>
+            <md-list class="md-whiteframe-1dp">
+                <md-list-item class="md-2-line">
+                    <div class="md-list-item-text">
+                        <p>Questions Answered</p>
+                        <h3>{{total}}</h3>
+                    </div>
+                </md-list-item>
+                <md-list-item class="md-2-line">
+                    <div class="md-list-item-text">
+                        <p>Correct</p>
+                        <h3>{{correct}}</h3>
+                    </div>
+                </md-list-item>
+                <md-list-item class="md-2-line">
+                    <div class="md-list-item-text">
+                        <p>Wrong</p>
+                        <h3>{{wrong}}</h3>
+                    </div>
+                </md-list-item>
+            </md-list>
+        </div>
+    </div>
+</div>

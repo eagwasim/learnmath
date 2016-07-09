@@ -1,0 +1,57 @@
+extends layout
+
+block content
+    div(layout='row' ,class='playful', layout-pading)
+        div(ng-if='isAuthenticated()', flex , layout='column')
+            div(layout='row', class='white-background md-whiteframe-1dp', layout-align='center')
+                h3(class='md-headline') Learn Math
+            md-divider
+            div(layout='row', class='white-background md-whiteframe-1dp', layout-padding, layout-align='center')
+                span(ng-repeat='star in stars', class='margin')
+                    div(layout-align='center', layout='column')
+                        ng-md-icon(icon='star' style='fill: {{star.star}}')
+                        span {{star.name}}
+            div(layout='row',layout-margin)
+                div(flex='20')
+                    md-content(class='md-whiteframe-1dp')
+                        md-list
+                            md-subheader Hello! {{user.userName}}
+                            md-divider
+                            md-subheader(class='md-no-sticky') TOPICS
+                            md-list-item(ng-href='#/addition')
+                                p ADDITION
+                                ng-md-icon(icon='star' style='fill: {{getStar(user.addition.star).star}}')
+                            md-divider
+                            md-list-item(ng-href='#/division')
+                                p DIVISION
+                                ng-md-icon(icon='star' style='fill: {{getStar(user.division.star).star}}')
+                            md-divider
+                            md-list-item(ng-href='#/subtraction')
+                                p SUBTRACTION
+                                ng-md-icon(icon='star' style='fill: {{getStar(user.subtraction.star).star}}')
+                            md-divider
+                            md-list-item(ng-href='#/multiplication')
+                                p MULTIPLICATION
+                                ng-md-icon(icon='star' style='fill: {{getStar(user.multiplication.star).star}}')
+                            md-divider
+                            md-subheader(class='md-no-sticky')
+                            md-list-item(ng-click='logout()')
+                                p LOGOUT
+                div(flex='80', layout='column')
+                    md-content(class='md-whiteframe-1dp', flex, layout='column', layout-pading)
+                        div(ng-view, flex)
+
+
+        div(ng-if='! isAuthenticated()', layout='row', flex)
+            md-content(flex, layout-padding, class='transparent-background')
+                div(flex-lt-sm='100', flex='30', flex-offset-gt-sm='35', class='md-whiteframe-1dp white-background')
+                    div(layout-align='center center' layout='row')
+                        h3(class='md-title') Learn Math!
+                    form(name='userForm')
+                        div(layout='column')
+                            md-input-container(class='md-block', flex)
+                                label ENTER YOUR NAME
+                                input(ng-model="user.userName", type='text', ng-required='true')
+                            md-button(ng-click='setUserName()', ng-disabled='userForm.$invalid' class='md-accent md-raised', aria-label='Submit') CONTINUE
+
+
